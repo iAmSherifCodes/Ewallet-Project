@@ -39,4 +39,4 @@ class Transaction(models.Model):
     date_time = models.DateTimeField(auto_now_add=True)
     amount = models.BigIntegerField()
     wallet = models.ForeignKey(Wallet, on_delete=models.PROTECT)
-    reference_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    reference_number = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, auto_created=True)
