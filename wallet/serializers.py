@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from wallet.models import User, Wallet
+from wallet.models import User, Wallet, Transaction
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -14,4 +14,20 @@ class WalletSerializer(serializers.ModelSerializer):
         model = Wallet
         fields = ['id', 'user', 'balance', 'wallet_number']
 
-class CreateUserSerializer
+
+class TransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ['type', 'status', 'date_time', 'amount', 'wallet', 'reference_number']
+
+
+class CreateTransactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Transaction
+        fields = ['type', 'status', 'amount', 'wallet', 'reference_number']
+
+
+class CreateUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email', 'phone_number']

@@ -12,7 +12,7 @@ class User(models.Model):
     phone_number = models.CharField(max_length=12)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} {self.email}"
+        return f"{self.first_name} {self.last_name} {self.email} {self.phone_number}"
 
 
 class Wallet(models.Model):
